@@ -12,6 +12,8 @@ function formatter(price){
 function App() {
   const [current,setCurrent] = useState(1);
 
+  const [stock,setStock] = useState('NSEBANK');
+
   
   useEffect(()=>{
     const ws = new WebSocket('wss://streamer.finance.yahoo.com');
@@ -24,7 +26,7 @@ const Yaticker = root.lookupType('yaticker');
 ws.onopen = function open() {
   console.log('connected');
   ws.send(JSON.stringify({
-    subscribe: ['^NSEBANK']
+    subscribe: ['GME']
   }));
 };
 
